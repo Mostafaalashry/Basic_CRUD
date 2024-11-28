@@ -18,11 +18,13 @@
     <None Remove="Data\" />
     <None Remove="Controllers\" />
     <None Remove="MiddleWare\" />
+    <None Remove="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="MiddleWare\" />
+    <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />
