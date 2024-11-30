@@ -1,10 +1,12 @@
 ﻿using CRUD.Data;
+using CRUD.Filters;
 using Microsoft.AspNetCore.Mvc;
 namespace CRUD.Controllers
 {
 
     [ApiController]
     [Route("[controller]")]
+    [LogSensetiveAction]
     public class ProductsController : ControllerBase
     {
         private readonly ApplicationDBcontext _dBcontext;
