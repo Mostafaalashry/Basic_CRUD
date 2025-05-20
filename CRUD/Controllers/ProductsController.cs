@@ -1,12 +1,13 @@
-﻿using CRUD.Data;
+﻿using System.Security.Claims;
+using CRUD.Data;
 using CRUD.Filters;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace CRUD.Controllers
 {
 
     [ApiController]
     [Route("[controller]")]
-    [LogSensetiveAction]
     public class ProductsController : ControllerBase
     {
         private readonly ApplicationDBcontext _dBcontext;
@@ -25,6 +26,7 @@ namespace CRUD.Controllers
             await _dBcontext.SaveChangesAsync();
             return Ok(product.Id);
         }
+
 
         [HttpPut]
         [Route("")]
@@ -47,6 +49,7 @@ namespace CRUD.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [LogSensetiveAction]
         public ActionResult DeleteProduct(int id)
         {
             var existingProduct = _dBcontext.Set<Product>().Find(id);
@@ -63,12 +66,17 @@ namespace CRUD.Controllers
 
         [HttpGet]
         [Route("")]
+        [Authorize]
         public ActionResult <IEnumerable<Product>>GetAllProduct()
         {
+            var userName = User.Identity.Name;
+            var userId = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             var records = _dBcontext.Set<Product>().ToList();
             return Ok(records);
 
         }
+
 
 
         [HttpGet]

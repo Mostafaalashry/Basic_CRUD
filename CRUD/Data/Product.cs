@@ -1,6 +1,7 @@
 ﻿using System;
 namespace CRUD.Data
 {
+
 	public class Product
 	{
         public required int Id { set; get; }

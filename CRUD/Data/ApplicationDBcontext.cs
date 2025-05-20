@@ -13,7 +13,7 @@ namespace CRUD.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Product>().ToTable("Products");
+            _ = modelBuilder.Entity<Product>().ToTable("Products");
 
         }
         

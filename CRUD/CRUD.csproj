@@ -19,14 +19,13 @@
     <None Remove="Controllers\" />
     <None Remove="MiddleWare\" />
     <None Remove="Filters\" />
+    <None Remove="Authentication\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="MiddleWare\" />
     <Folder Include="Filters\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\.editorconfig" />
+    <Folder Include="Authentication\" />
   </ItemGroup>
 </Project>
